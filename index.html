@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos CCAA - Alquiler de Equipos para Eventos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        header img {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 50px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .intro {
+            padding: 20px;
+            text-align: center;
+            background-color: #e3f2fd;
+        }
+        .catalog {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .catalog-item {
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            padding: 10px;
+            width: 45%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .catalog-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .catalog-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-height: 200px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px auto;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        form div {
+            margin-bottom: 15px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form input:focus, form select:focus, form textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        .animated-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: #ff5722;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .animated-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eventos CCAA</h1>
+        <img src="LOGO.jpeg" alt="Logo de Eventos CCAA">
+    </header>
+    <div class="intro">
+        <h2>Bienvenidos a Eventos CCAA</h2>
+        <p>Especialistas en alquiler de equipos de sonido e iluminación para todo tipo de eventos. ¡Haz que tu evento sea inolvidable con nuestros servicios de alta calidad!</p>
+    </div>
+    <div class="catalog">
+        <div class="catalog-item">
+            <h3>Equipo de Sonido Profesional</h3>
+            <img src="equiposonido.png" alt="Equipo de Sonido Profesional">
+            <p>Potente equipo de sonido con alta fidelidad, ideal para conciertos y eventos grandes.</p>
+            <p><strong>Precio:</strong> $40.000 por día</p>
+            <div class="animated-button">Reservar Ahora</div>
+        </div>
+        <div class="catalog-item">
+            <h3>Luces LED Inteligentes</h3>
+            <img src="LedProfesional.jpg" alt="Luces LED Inteligentes">
+            <p>Sistema de iluminación LED programable para crear el ambiente perfecto en cualquier evento.</p>
+            <p><strong>Precio:</strong> $50.000 por día</p>
+            <div class="animated-button">Reservar Ahora</div>
+        </div>
+    </div>
+    <div class="form-container">
+        <h2>Reserva tu Equipo</h2>
+        <form action="submit_form.php" method="post">
+            <div>
+                <label for="event-date">Fecha del Evento:</label>
+                <input type="date" id="event-date" name="event_date" required>
+            </div>
+            <div>
+                <label>Equipo(s) Requerido(s):</label>
+                <input type="checkbox" id="equipo1" name="equipo[]" value="Equipo de Sonido Profesional">
+                <label for="equipo1">Equipo de Sonido Profesional</label><br>
+                <input type="checkbox" id="equipo2" name="equipo[]" value="Luces LED Inteligentes">
+                <label for="equipo2">Luces LED Inteligentes</label>
+            </div>
+            <div>
+                <label for="rental-days">Tiempo de Alquiler (días):</label>
+                <input type="number" id="rental-days" name="rental_days" min="1" required>
+            </div>
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div>
+                <label for="notes">Notas Adicionales:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Especifica cualquier requerimiento adicional..."></textarea>
+            </div>
+            <button type="submit">Enviar Reserva</button>
+        </form>
+    </div>
+</body>
+</html>
